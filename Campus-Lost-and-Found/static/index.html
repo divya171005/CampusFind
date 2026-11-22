@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusFind | Lost & Found</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">⌖</span> CampusFind</a>
+    <nav><a href="#browse">Browse items</a><a href="#how">How it works</a><button class="nav-post" id="open-form">＋ Report an item</button></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">YOUR CAMPUS, CONNECTED</span>
+        <h1>Lost something?<br><em>Let's find it.</em></h1>
+        <p>A shared space for students to report lost belongings, post found items, and help reunite people with what matters.</p>
+        <div class="hero-actions"><button class="primary" id="hero-report">Report an item <span>↗</span></button><a class="text-link" href="#browse">Explore listings ↓</a></div>
+        <div class="hero-stats"><div><strong id="open-count">0</strong><span>Open listings</span></div><div><strong>One</strong><span>Campus community</span></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="art-circle"></div>
+        <div class="floating-card card-wallet"><span class="emoji">👛</span><div><b>Wallet found</b><small>Library · Today</small></div><span class="mini-tag">FOUND</span></div>
+        <div class="floating-card card-keys"><span class="emoji">🔑</span><div><b>Keys missing</b><small>Block B · Yesterday</small></div><span class="mini-tag lost">LOST</span></div>
+        <div class="art-note">A little help<br>goes a long way <span>✦</span></div>
+      </div>
+    </section>
+
+    <section class="browse section" id="browse">
+      <div class="section-heading"><div><span class="eyebrow">COMMUNITY BOARD</span><h2>Recent listings</h2><p>Search campus reports and help make a match.</p></div><button class="outline" id="browse-report">＋ Post a listing</button></div>
+      <div class="filters">
+        <div class="search-wrap"><span>⌕</span><input id="search" placeholder="Search item, place or details..."></div>
+        <select id="type-filter"><option value="">All reports</option><option>Lost</option><option>Found</option></select>
+        <select id="category-filter"><option value="">All categories</option><option>Electronics</option><option>ID & Cards</option><option>Keys</option><option>Bags</option><option>Books & Notes</option><option>Clothing</option><option>Accessories</option><option>Other</option></select>
+      </div>
+      <div id="items-grid" class="items-grid"><div class="empty">Loading campus listings...</div></div>
+    </section>
+
+    <section class="how section" id="how">
+      <span class="eyebrow">SIMPLE AS THAT</span><h2>Small steps. Happy reunions.</h2>
+      <div class="steps"><article><span>01</span><h3>Post a report</h3><p>Share what you've lost or found, along with the location and date.</p></article><article><span>02</span><h3>Browse & connect</h3><p>Search listings and use the provided contact details to coordinate safely.</p></article><article><span>03</span><h3>Close the loop</h3><p>Once the item is returned, mark the listing as resolved.</p></article></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-icon">⌖</span> CampusFind</a><span>Built for a more helpful campus community.</span></footer>
+
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <button class="close" id="close-modal" aria-label="Close">×</button>
+      <span class="eyebrow">HELP THE COMMUNITY</span><h2>Report an item</h2><p>Share enough detail for someone to recognize it.</p>
+      <form id="item-form">
+        <div class="form-row"><label>Report type<select name="item_type" required><option>Lost</option><option>Found</option></select></label><label>Category<select name="category" required><option>Electronics</option><option>ID & Cards</option><option>Keys</option><option>Bags</option><option>Books & Notes</option><option>Clothing</option><option>Accessories</option><option>Other</option></select></label></div>
+        <label>Item title<input name="title" placeholder="e.g. Black water bottle" required maxlength="100"></label>
+        <label>Description<textarea name="description" placeholder="Describe colour, brand, distinguishing features..." required></textarea></label>
+        <div class="form-row"><label>Location<input name="location" placeholder="e.g. Central Library" required></label><label>Date lost/found<input name="date_seen" placeholder="e.g. 22 Nov 2026" required></label></div>
+        <div class="form-row"><label>Your name<input name="contact_name" required></label><label>Contact email<input name="contact_email" type="email" required></label></div>
+        <button class="primary full" type="submit">Publish listing ↗</button>
+        <small class="privacy-note">Only share a campus email address you are comfortable making visible to other students. Meet in a public campus location when arranging collection.</small>
+      </form>
+      <div id="form-message"></div>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
